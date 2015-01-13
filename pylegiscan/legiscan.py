@@ -1,4 +1,5 @@
 
+import os
 import json
 from urllib import urlencode
 from urllib import quote_plus
@@ -30,11 +31,14 @@ class LegiScanError(Exception):
 class LegiScan(object):
     BASE_URL = 'http://api.legiscan.com/?key={0}&op={1}&{2}'
 
-    def __init__(self, apikey):
+    def __init__(self, apikey=None):
         """LegiScan API.  State parameters should always be passed as
            USPS abbreviations.  Bill numbers and abbreviations are case
            insensitive.  Register for API at http://legiscan.com/legiscan
         """
+        # see if API key available as environment variable
+        if apikey is None:
+            apikey = os.environ['LEGISCAN_API_KEY']
         self.key = apikey.strip()
 
     def _url(self, operation, params=None):
