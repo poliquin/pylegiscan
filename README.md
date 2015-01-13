@@ -20,6 +20,7 @@ started using the module.
 Tell the API who you are and search for abortion legislation in the Texas state
 legislature for current year...
 
+    from pylegiscan import LegiScan
     legis = LegiScan('MY_API_KEY_GOES_HERE')
     bills = legis.search(state='tx', query='abortion')
     bills['summary']  # how many results did we get?
