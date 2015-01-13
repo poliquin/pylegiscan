@@ -39,6 +39,8 @@ Figure out who the first sponsor of the bill is...
     sponsor = legis.get_sponsor(people_id)
     print sponsor['name']
 
+You can put your API key in the `LEGISCAN_API_KEY` environment variable and
+create a new instance of `LegiScan` without passing a key.
 
 License
 -------
