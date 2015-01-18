@@ -148,7 +148,7 @@ class LegiScan(object):
         if bill_number is not None:
             params = {'state': state, 'bill': bill_number}
         elif query is not None:
-            params = {'state': state, 'query': quote_plus(query),
+            params = {'state': state, 'query': query,
                       'year': year, 'page': page}
         else:
             raise ValueError('Must specify bill_number or query')
